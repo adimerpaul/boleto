@@ -1,6 +1,4 @@
 <script>
-// import { ref } from 'vue';
-// name
 export default {
   name: 'Home',
   data() {
@@ -40,43 +38,36 @@ export default {
         }
       ]
     };
+  },
+  mounted() {
+    this.$nextTick(() => {
+      // Esperamos a que Vue termine de renderizar el DOM
+      if (window.$ && typeof window.$('.tab-slider').owlCarousel === 'function') {
+        window.$('.tab-slider').owlCarousel({
+          loop: true,
+          responsiveClass: true,
+          nav: false,
+          dots: false,
+          margin: 30,
+          autoplay: true,
+          autoplayTimeout: 2000,
+          autoplayHoverPause: true,
+          responsive: {
+            0: { items: 1 },
+            576: { items: 2 },
+            768: { items: 2 },
+            992: { items: 3 },
+            1200: { items: 4 }
+          }
+        });
+      } else {
+        console.warn('owlCarousel not found');
+      }
+    });
   }
 }
-// const peliculas = ref([
-//   {
-//     id: 1,
-//     title: 'Alone',
-//     image: '/assets/images/movie/movie01.jpg',
-//     rating: 88,
-//     ratingPublic: 89,
-//     genre: 'Action'
-//   },
-//   {
-//     id: 2,
-//     title: 'Mars',
-//     image: '/assets/images/movie/movie02.jpg',
-//     rating: 56,
-//     ratingPublic: 62,
-//     genre: 'Adventure'
-//   },
-//   {
-//     id: 3,
-//     title: 'Venus',
-//     image: '/assets/images/movie/movie03.jpg',
-//     rating: 78,
-//     ratingPublic: 80,
-//     genre: 'Drama'
-//   },
-//   {
-//     id: 4,
-//     title: 'Horror Night',
-//     image: '/assets/images/movie/movie04.jpg',
-//     rating: 90,
-//     ratingPublic: 95,
-//     genre: 'Horror'
-//   }
-// ])
 </script>
+
 <template>
   <section class="movie-section padding-top padding-bottom">
     <div class="container">
@@ -129,6 +120,7 @@ export default {
                   </div>
                 </div>
               </div>
+<!--              <pre>{{peliculas}}</pre>-->
             </div>
           </div>
           <div class="tab-item">

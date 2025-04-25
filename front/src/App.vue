@@ -7,7 +7,6 @@ import Home from "./views/Home.vue";
 
 <template>
   <Header />
-<!--  <Home />-->
   <router-view />
   <Footer />
 </template>

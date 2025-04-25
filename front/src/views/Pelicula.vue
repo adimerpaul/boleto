@@ -14,10 +14,25 @@ export default {
     };
   },
   mounted() {
-    // print( id
-    // this.$route.params.id);
-    console.log(this.$route.params.id);
+    console.log(this.$route.params.id)
+
+    this.$nextTick(() => {
+      if (window.$ && typeof window.$('.casting-slider').owlCarousel === 'function') {
+        window.$('.casting-slider').owlCarousel({ /* config */ })
+      }
+      if (window.$ && typeof window.$('.casting-slider-two').owlCarousel === 'function') {
+        window.$('.casting-slider-two').owlCarousel({ /* config */ })
+      }
+      if (window.$ && typeof window.$('.details-photos').owlCarousel === 'function') {
+        window.$('.details-photos').owlCarousel({ /* config */ })
+      }
+      const $img = window.$('.bg_img');
+      $img.css('background-image', function () {
+        return 'url(' + $img.data('background') + ')';
+      });
+    })
   }
+
 };
 </script>
 <template>
