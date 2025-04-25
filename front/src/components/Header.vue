@@ -21,9 +21,9 @@
     <div class="container">
       <div class="header-wrapper">
         <div class="logo">
-          <a href="index.html">
+          <router-link to="/">
             <img src="/assets/images/logo/logo.png" alt="logo">
-          </a>
+          </router-link>
         </div>
         <ul class="menu">
           <li>
